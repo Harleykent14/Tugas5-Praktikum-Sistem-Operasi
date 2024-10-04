@@ -27,10 +27,10 @@ Saya memakai 2 user account, yaitu satu dengan nama "kentvb" dan satunya "guest"
 
 ![T(3)](https://github.com/user-attachments/assets/49cc4a39-297c-4dfd-b75d-819338300131)
 
-  `  nano /home/angga/.bash_profile
+      nano /home/kentvb/.bash_profile
 ![T(4)](https://github.com/user-attachments/assets/3aff7d49-ac75-468d-a149-0a88d084edcd)
 
-      nano /home/angga/.bash_login  
+      nano /home/kentvb/.bash_login  
 ![T(5)](https://github.com/user-attachments/assets/fd1ce705-a826-4fb2-8481-a8c17e2f73b9)
 
       nano /home/guest/.profile
@@ -157,6 +157,123 @@ a. Buat 3 buah script p1.sh, p2.sh, p3.sh dengan isi masing-masing :
     ps x
 
 ![T(15)](https://github.com/user-attachments/assets/4a45db52-d387-414f-a412-e6595846a8c1)
+
+b. Jalankan script tersebut sebagai berikut : 
+
+            $ ./p1.sh ; ./p3.sh ; ./p2.sh 
+            $ ./p1.sh & 
+            $ ./p1.sh $ ./p2.sh & ./p3.sh & 
+            $ ( ./p1.sh ; ./p3.sh ) & 
+
+
+Disini saya mengubah dulu izin dari ketiga file tersebut menggunakan chmod, agar dapat di execute atau jalankan
+kemudian baru memasukan command line yg diatas :
+
+             $ ./p1.sh ; ./p3.sh ; ./p2.sh
+
+![Screenshot from 2024-10-04 10-42-38](https://github.com/user-attachments/assets/39dd7e5d-0eb3-4b4c-87a0-cdf1c87497e3)
+
+             $ ./p1.sh & 
+
+![Screenshot from 2024-10-04 10-42-53](https://github.com/user-attachments/assets/2131d3b6-d2f0-4711-85e2-e65d0acb70d5)
+
+            $ ./p1.sh $ ./p2.sh & ./p3.sh &
+
+![Screenshot from 2024-10-04 10-43-45](https://github.com/user-attachments/assets/2514974a-ed6c-4a7e-b360-c663dbc1fe66)
+
+            $ ( ./p1.sh ; ./p3.sh ) & 
+
+![Screenshot from 2024-10-04 10-45-03](https://github.com/user-attachments/assets/fe9e7f82-884d-4bd3-9931-7fbfb89c67ea)
+
+
+**5. Jobs**
+
+
+a. Buat shell-script yang melakukan loop dengan nama pwaktu.sh, 
+setiap 10 detik, kemudian menyimpan tanggal dan jam pada file hasil.
+
+            #!/bin/bash 
+            while [ true ] 
+            do 
+            date >> hasil 
+            sleep 10 
+            done 
+            
+![Screenshot from 2024-10-04 10-47-30](https://github.com/user-attachments/assets/fb04e1ff-ee78-447b-bc0b-5e8ad8a848c5)
+
+b. Jalankan sebagai background; kemudian jalankan satu program (utilitas find) di background sebagai berikut :
+
+            $ jobs 
+            $ find / -print > files 2>/dev/null & 
+            $ jobs 
+
+![Screenshot from 2024-10-04 10-48-57](https://github.com/user-attachments/assets/e5dbb9fe-8c91-4e93-a432-032b1cd8d2da)
+
+c. Jadikan program ke 1 sebagai foreground, tekan ^Z dan kembalikan program tersebut ke background
+
+            $ fg %1 
+            $ bg 
+            
+![Screenshot from 2024-10-04 10-50-20](https://github.com/user-attachments/assets/e43faea6-020d-48b1-a75b-405e03a6996f)
+
+d. Stop program background dengan utilitas kil
+
+            $ ps x 
+            $ kill [Nomor PID] 
+
+![Screenshot from 2024-10-04 10-51-36](https://github.com/user-attachments/assets/23fa86ed-fef2-4c76-91a6-c7a13b8a5448)
+
+
+**6. History**
+
+a. Ganti nilai HISTSIZE dari 1000 menjadi 20 
+
+          $ HISTSIZE=20 
+          $ h
+
+![Screenshot from 2024-10-04 10-52-50](https://github.com/user-attachments/assets/5a19f8e4-e500-440d-a092-07ae63c382f1)
+
+b. Gunakan fasilitas history dengan mengedit instruksi baris ke 5 dari instruksi yang terakhir dilakukan
+
+            $ !-5
+
+![Screenshot from 2024-10-04 10-54-23](https://github.com/user-attachments/assets/a479b4cd-08c4-4614-8067-ba0c7c044d1b)
+
+c. Ulangi instruksi yang terakhir. Gunakan juga ^P dan ^N untuk bernavigasi pada history bufer
+
+            $ !! 
+
+![Screenshot from 2024-10-04 10-55-08](https://github.com/user-attachments/assets/0c6fd544-3635-4951-9166-83191b575cad)
+
+d. Ulangi instruksi pada history bufer nomor 150
+
+            $ !150
+
+![Screenshot from 2024-10-04 10-55-12](https://github.com/user-attachments/assets/34f9f92e-3d93-4a1b-ba7e-54a837140348)
+
+    ![Screenshot from 2024-10-04 10-55-46](https://github.com/user-attachments/assets/7000529b-8df9-4de3-bcee-72207f4905c2)
+        
+e. Ulangi instruksi dengan prefix “ls”
+
+            $ !ls 
+
+![Screenshot from 2024-10-04 10-56-11](https://github.com/user-attachments/assets/30984966-cea4-4c29-9f31-9d48423297f3)
+
+
+
+
+
+            
+
+
+
+
+            
+
+
+
+
+
 
 
 
